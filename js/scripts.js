@@ -1,10 +1,14 @@
 $(function() {
   $("form#inputNumber").submit(function(event) {
-    var inputCount = parseInt($("input#countNumber").val());
-    var inputMult = parseInt($("input#multNumber").val());
+    var inputCount = parseFloat($("input#countNumber").val());
+    var inputMult = parseFloat($("input#multNumber").val());
     var countArray = [];
     if (isNaN(inputCount)=== true || isNaN(inputMult)=== true) {
-      alert("Please enter valid numbers");
+      alert("Please enter valid numbers.");
+    } else if (inputCount <= 0 || inputMult <=0) {
+      alert("Please enter a positive integer.")
+    } else if (inputCount < inputMult) {
+      alert("Please check your numbers and enter them again.")
     } else {
     for (var index = inputMult; index <= inputCount; index += inputMult) {
       countArray.push(" " + index);
